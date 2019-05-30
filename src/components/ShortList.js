@@ -25,15 +25,15 @@ export default ({
   return (
     <div className="favourites">
       <h4>
-        {hasFavourites 
+        {/*{hasFavourites 
           ? 'Your Shortlist'
           : 'Click on a name to shortlist it..'
-        }
+        } */}
       </h4>
       <ul>
         {favList}
       </ul>
-      {hasFavourites && <hr/>}
+      {hasFavourites}
     </div>
   )
 }

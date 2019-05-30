@@ -11,6 +11,8 @@ class Search extends Component {
     const { filterVal, filterUpdate} = this.props
     return (
       <form>
+        {this.props.children[0]}
+        <div className="inputdiv">
         <input 
           type='text'
           ref='filterInput'
@@ -20,7 +22,11 @@ class Search extends Component {
           onChange={() => {
            filterUpdate(this.refs.filterInput.value) 
           }}
-        /> 
+        />
+        <div className="listposition">
+        {this.props.children[1]}</div>
+        
+        </div>
       </form>
     )
   }

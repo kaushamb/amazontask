@@ -13,14 +13,18 @@ class App extends Component {
     super(props)
     this.state = {
       filterText: '',
-      favourites: []
+      favourites: [],
+      
+
     }
   }
-  
+
+
   // update filterText in state when user types 
   filterUpdate(value) {
     this.setState({
-      filterText: value
+      filterText: value,
+      
     });
   }
   
@@ -49,44 +53,32 @@ class App extends Component {
   /* ############################# */
 
   render() {
-    const hasSearch = this.state.filterText.length > 0
+    
     return ( 
       <div>
         <header>
           <Search
             filterVal={this.state.filterText}
             filterUpdate={this.filterUpdate.bind(this)}
-          /> 
-        </header>
-        <main>
-        
-          <ShortList 
-            data={this.props.data} 
-            favourites={this.state.favourites}
-            deleteFavourite={this.deleteFavourite.bind(this)}
-          />
-
-          <NamesList 
+            
+          ><ShortList 
+          data={this.props.data} 
+          favourites={this.state.favourites}
+          deleteFavourite={this.deleteFavourite.bind(this)}
+        />
+        <NamesList 
             data={this.props.data}
             filter={this.state.filterText}
             favourites={this.state.favourites}
             addFavourite={this.addFavourite.bind(this)}
           />
-          {/* 
-            Show only if user has typed in search.
-            To reset the input field, we pass an 
-            empty value to the filterUpdate method
-          */}
-          {hasSearch &&
-            <button
-              onClick={this.filterUpdate.bind(this, '')}>
-              Clear Search
-            </button>
-          }
-
-          <div className="credit">
-            Source of names list: <a href="https://www.yahoo.com/parenting/atticus-tops-baby-names-2015-124073377716.html" target="_blank">Yahoo - Top Baby Names in 2015</a>
-          </div>
+        
+        </Search> 
+        </header>
+        <main>
+        
+        
+          
         </main>
       </div>
     )

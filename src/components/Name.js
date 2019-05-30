@@ -1,7 +1,7 @@
 import React from 'react'
 
 /* ############################ */
-/* ##### Single baby name ##### */
+/* ##### Single name ##### */
 /* ############################ */
 
 export default ({ 
@@ -12,6 +12,7 @@ export default ({
   <li
     className={info.sex}
     onClick={() => handleFavourite(id)}>
+    <div className="displaypic"></div>
     {info.name}
   </li>
 )

@@ -3,7 +3,7 @@ import React from 'react'
 import Name from './Name'
 
 /* ########################### */
-/* ##### Baby names list ##### */
+/* ##### names list ##### */
 /* ########################### */
 
 export default ({ 
@@ -29,19 +29,22 @@ export default ({
     .map((person, i) => {
     // only display names that match current input string
       return (
-        <Name 
+        <div>
+        
+          <Name 
           id={person.id}
           key={i}
           info={person}
           handleFavourite={(id) => addFavourite(id)}
         />
+        </div>
       )
     })
   
   /* ##### the component's output ##### */
   return ( 
-    <ul> 
-      {names}
+    <ul className="namelistul"> 
+     {names}
     </ul>
   )
 }
